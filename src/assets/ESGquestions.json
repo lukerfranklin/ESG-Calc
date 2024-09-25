@@ -1,0 +1,219 @@
+{
+    "categories":{
+        "Environment": {
+            "Climate Change": {
+                "1": {
+                    "question": "Does your company have a documented process for assessing the impacts that climate change will have on your company?",
+                    "impact": "high"
+                },
+                "2": {
+                    "question": "Does your company have plans to implement a process for assessing the impacts that climate change will have on your company?",
+                    "impact": "high"
+                },
+                "3": {
+                    "question": "Does your company have a process for assessing the impacts that climate change will have on your supply chain?",
+                    "impact": "high"
+                },
+                "4": {
+                    "question": "Has your company carried out a climate change impact assessment for all suppliers to your company?",
+                    "impact": "high"
+                },
+                "5": {
+                    "question": "Does your company have a process for assessing the opportunities climate change may present to your company?",
+                    "impact": "high"
+                },
+                "6": {
+                    "question": "Does your company assess the exposure to the risk of stranded assets due to climate change?",
+                    "impact": "high"
+                },
+                "7": {
+                    "question": "Does your company report all Scope 1 Carbon Emissions?",
+                    "impact": "high"
+                },
+                "8": {
+                    "question": "Does your company report all Scope 2 Carbon Emissions?",
+                    "impact": "high"
+                },
+                "9": {
+                    "question": "Does your company report all applicable Scope 3 Carbon Emissions?",
+                    "impact": "high"
+                },
+                "10": {
+                    "question": "Have you achieved independent third-party assurance in regards to your company's emissions data?",
+                    "impact": "high"
+                },
+                "11": {
+                    "question": "Do you disclose emissions via CDP?",
+                    "impact": "high"
+                }
+            },
+            "Energy Use & Waste": {
+                "1": {
+                    "question": "Can your company evidence practices to reduce waste to landfill?",
+                    "impact": "medium"
+                }
+            },
+            "Environmental Policy & Management": {
+                "1": {
+                    "question": "Does your company have an Environmental Policy?",
+                    "impact": "medium"
+                },
+                "2": {
+                    "question": "Does your company have an ISO 14001 certification?",
+                    "impact": "high"
+                },
+                "3": {
+                    "question": "Does your company supply goods or materials that may have an environmental impact on your customer/client?",
+                    "impact": "low"
+                }
+            }
+        },
+
+        "Social": {
+            "Code of Conduct, Ethical Issues & Whistleblowing": {
+                "1": {
+                    "question": "Training on this process at least annually for all existing staff and for all new staff upon induction?",
+                    "impact": "medium"
+                },
+                "2": {
+                    "question": "The requirement that all concerns must be dealt with confidentially?",
+                    "impact": "medium"
+                },
+                "3": {
+                    "question": "Protection for employees reporting a concern, resulting in formal action in the event of harassment or victimisation?",
+                    "impact": "medium"
+                },
+                "4": {
+                    "question": "A statement that employees should not be prevented from reporting a concern?",
+                    "impact": "medium"
+                }
+            },
+            "Diversity & Inclusion": {
+                "1": {
+                    "question": "Does your company have a documented Diversity & Inclusion policy?",
+                    "impact": "medium"
+                },
+                "2": {
+                    "question": "Commitment in providing a work environment free from discrimination and harassment on any grounds protected by the UK Equality Act 2010 and any equivalent legislation or regulation in other jurisdictions in which your company operates?",
+                    "impact": "medium"
+                },
+                "3": {
+                    "question": "Controls to prevent discrimination, bullying or harassment based on sexual orientation, gender identity, race, ethnicity, or disability?",
+                    "impact": "medium"
+                }
+            },
+            "Health & Safety":{
+                "1": {
+                    "question": "Does your company have a documented Health & Safety Policy?",
+                    "impact": "low"
+                },
+                "2": {
+                    "question": "Does your company have an ISO 45001 certification?",
+                    "impact": "high"
+                }
+            },
+            "Labour Standards & Human Rights": {
+                "1": {
+                    "question": "Does your company have a written policy and/or documented processes relating to Labour Standards?",
+                    "impact": "medium"
+                },
+                "2": {
+                    "question": "Identification of human rights risks in your supply chain, including slavery and human trafficking?",
+                    "impact": "high"
+                },
+                "3": {
+                    "question": "Minimum labour standards for your suppliers?",
+                    "impact": "high"
+                },
+                "4": {
+                    "question": "Monitoring and/or assessment of your suppliers' human rights performance?",
+                    "impact": "high"
+                },
+                "5": {
+                    "question": "Workers' collective bargaining, freedom of association and union membership rights?",
+                    "impact": "high"
+                },
+                "6": {
+                    "question": "Procedures for permanent, temporary and agency workers ensuring that, at a minimum, working hours comply with national legal standards, are reasonable compared to other companies in your sector, and do not exceed ILO standards?",
+                    "impact": "high"
+                },
+                "7": {
+                    "question": "Does your company ensure all workers are paid at least the official national minimum wage?",
+                    "impact": "low"
+                },
+                "8": {
+                    "question": "Has your company signed up to a formal process for ensuring living wage requirements are met?",
+                    "impact": "high"
+                }
+            },
+            "Modern Slavery, Forced Labour & Human Trafficking": {
+                "1": {
+                    "question": "Has your company published a Modern Slavery statement on your website in the last 12 months?",
+                    "impact": "high"
+                },
+                "2": {
+                    "question": "Do you have terms and conditions with your suppliers which specifically forbid the use of slavery, servitude and forced or compulsory labour; and human trafficking?",
+                    "impact": "medium"
+                },
+                "3": {
+                    "question": "Do you require that your suppliers carry out training to raise awareness of such practices in your supply chain and to ensure transparency and cooperation to resolve issues?",
+                    "impact": "high"
+                },
+                "4": {
+                    "question": "Do you carry out supplier audits and checks on a regular basis to ensure that no such practices occur and do you maintain records available for examination of such audits?",
+                    "impact": "high"
+                }
+        }
+    },
+    "Governance": {
+            "Business Conduct": {
+                "1": {
+                    "question": "Does your company have a written policy and/or documented procedure(s) for Conflicts of Interest?",
+                    "impact": "high"
+                },
+                "2": {
+                    "question": "Sanctions check?",
+                    "impact": "high"
+                },
+                "3": {
+                    "question": "CIFAS checks?",
+                    "impact": "high"
+                },
+                "4": {
+                    "question": "Politically Exposed Person checks?",
+                    "impact": "high"
+                },
+                "5": {
+                    "question": "Does your company have a written policy and procedure(s) for managing compliance with Part 3 of the Criminal Finances Act 2017 and/or any equivalent facilitation of tax evasion legislation or regulation in other jurisdictions in which your company operates?",
+                    "impact": "high"
+                },
+                "6": {
+                    "question": "Are pre-employment vetting checks undertaken for all employees?",
+                    "impact": "high"
+                }
+            },
+            "Customer Relationships": {
+                "1": {
+                    "question": "Does your company have a policy or process for meeting the needs of vulnerable customers?",
+                    "impact": "high"
+                }
+            },
+            "Supplier Relationships": {
+                "1": {
+                    "question": "Has your Company signed up to a timely payment code in any jurisdiction in which it operates, for example in the UK, the Prompt Payment Code?",
+                    "impact": "high"
+                }
+            },
+            "Corporate Social Responsibility & Sustainability": {
+                "1": {
+                    "question": "Does your company have a Corporate Social Responsibility (CSR) policy that outlines its commitment to sustainability and ethical practices?",
+                    "impact": "medium"
+                },
+                "2": {
+                    "question": "Does your company publish an annual sustainability report that details its environmental and social impacts and the measures taken to address them?",
+                    "impact": "medium"
+                }
+            }
+        }
+    }
+}
