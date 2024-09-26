@@ -1,12 +1,13 @@
 <script setup>
 import QuizQuestion from './QuizQuestion.vue';
 import Questions from '@/assets/ESGquestions.json';
-import { ref, defineEmits } from 'vue';
+import { ref, defineEmits, onMounted } from 'vue';
 
 const categories = Questions.categories;
 const emit = defineEmits(['score-updated']);
 
 const totalScore = ref(0);
+const categoryMaxScores = ref({});
 const previousAnswers = ref({});
 
 const assignIncrement = (impact) => {
@@ -26,12 +27,9 @@ const assignIncrement = (impact) => {
 };
 
 const updateScore = (impact, selectedAnswer, questionId) => {
-	// let storedAnswer = previousAnswers.value[questionId];
-
 	if (!selectedAnswer && previousAnswers.value[questionId]) {
 		totalScore.value -= assignIncrement(impact);
 	}
-
 	if (selectedAnswer) {
 		totalScore.value += assignIncrement(impact);
 	}
@@ -39,6 +37,22 @@ const updateScore = (impact, selectedAnswer, questionId) => {
 	previousAnswers.value[questionId] = selectedAnswer;
 	emit('score-updated', totalScore.value);
 };
+
+const calculateMaxScores = () => {
+	const maxScores = {};
+
+	for (const category in categories) {
+		maxScores[category] = 0;
+		for (const subcategory in categories[category]) {
+			for (const question in categories[categories][subcategory]) {
+				maxScores[category] += assignIncrement(question.impact);
+			}
+		}
+	}
+	categoryMaxScores.value = maxScores;
+};
+
+onMounted(() => calculateMaxScores);
 </script>
 
 <template>

@@ -1,4 +1,6 @@
 <script>
+import ScoreGraph from './ScoreGraph.vue';
+
 export default {
 	name: 'TheScoreDisplay',
 	props: {
@@ -12,6 +14,11 @@ export default {
 
 <template>
 	<div class="score-display">
+		<ScoreGraph
+			:score="totalScore"
+			:categoryScores="categoryScores"
+			:maxScores="categoryMaxScores"
+		/>
 		<p>Your current score: {{ totalScore }}</p>
 	</div>
 </template>
