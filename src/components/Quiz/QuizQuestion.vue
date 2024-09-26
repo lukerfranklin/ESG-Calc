@@ -3,7 +3,15 @@ export default {
 	name: 'QuizQuestion',
 	props: {
 		question: String,
+		impact: String,
 		questionId: String,
+	},
+	emits: ['answer-selected'],
+	methods: {
+		handleAnswerChange(e) {
+			const selectedAnswer = e.target.value === 'true';
+			this.$emit('answer-selected', this.impact, selectedAnswer);
+		},
 	},
 };
 </script>
@@ -18,6 +26,7 @@ export default {
 				:id="`${questionId}-yes`"
 				:name="questionId"
 				:value="true"
+				@change="handleAnswerChange"
 			/>
 			<label :for="`${questionId}-yes`">Yes</label>
 
@@ -26,6 +35,7 @@ export default {
 				:id="`${questionId}-no`"
 				:name="questionId"
 				:value="false"
+				@change="handleAnswerChange"
 			/>
 			<label :for="`${questionId}-no`">No</label>
 		</div>

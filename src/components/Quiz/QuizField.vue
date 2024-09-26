@@ -1,8 +1,35 @@
 <script setup>
 import QuizQuestion from './QuizQuestion.vue';
 import Questions from '@/assets/ESGquestions.json';
+import { ref, defineEmits } from 'vue';
 
 const categories = Questions.categories;
+const emit = defineEmits(['score-updated']);
+
+const totalScore = ref(0);
+
+const updateScore = (impact, selectedAnswer) => {
+	if (!selectedAnswer) {
+		return;
+	}
+	switch (impact) {
+		case 'high':
+			totalScore.value += 7 / 3;
+			break;
+		case 'medium':
+			totalScore.value += 4 / 3;
+			break;
+		case 'low':
+			totalScore.value++;
+			break;
+	}
+	console.log('updated score: ', totalScore.value);
+	emit('score-updated', totalScore.value);
+};
+
+// const handleAnswerSelected = (impact, selectedAnswer) => {
+// 	updateScore(impact, selectedAnswer)
+// }
 </script>
 
 <template>
@@ -27,7 +54,9 @@ const categories = Questions.categories;
 				>
 					<QuizQuestion
 						:question="question.question"
+						:impact="question.impact"
 						:questionId="`${categoryName}-${subcategoryName}-${questionId}`"
+						@answer-selected="updateScore"
 					/>
 				</div>
 			</div>
@@ -42,6 +71,7 @@ const categories = Questions.categories;
 	border-radius: 5px;
 	max-width: 800px;
 	margin: 0 auto;
+	margin-top: 40px;
 }
 
 .category {

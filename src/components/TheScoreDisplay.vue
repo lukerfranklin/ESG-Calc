@@ -1,40 +1,18 @@
 <script>
-import { ref } from 'vue';
-
 export default {
 	name: 'TheScoreDisplay',
 	props: {
-		score: {
+		totalScore: {
 			type: Number,
 			required: true,
 		},
 	},
 };
-
-const totalScore = ref(0);
-
-const updateScore = (impact, selectedAnswer) => {
-	if (!selectedAnswer) {
-		return totalScore.value;
-	}
-	switch (impact) {
-		case 'high':
-			totalScore.value += 7 / 3;
-			break;
-		case 'medium':
-			totalScore.value += 4 / 3;
-			break;
-		case 'low':
-			totalScore.value++;
-			break;
-	}
-	return totalScore.value;
-};
 </script>
 
 <template>
 	<div class="score-display">
-		<p>Your current score: {{ score }}</p>
+		<p>Your current score: {{ totalScore }}</p>
 	</div>
 </template>
 
