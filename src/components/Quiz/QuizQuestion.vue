@@ -10,7 +10,12 @@ export default {
 	methods: {
 		handleAnswerChange(e) {
 			const selectedAnswer = e.target.value === 'true';
-			this.$emit('answer-selected', this.impact, selectedAnswer);
+			this.$emit(
+				'answer-selected',
+				this.impact,
+				selectedAnswer,
+				this.questionId
+			);
 		},
 	},
 };

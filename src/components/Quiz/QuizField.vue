@@ -7,29 +7,38 @@ const categories = Questions.categories;
 const emit = defineEmits(['score-updated']);
 
 const totalScore = ref(0);
+const previousAnswers = ref({});
 
-const updateScore = (impact, selectedAnswer) => {
-	if (!selectedAnswer) {
-		return;
-	}
+const assignIncrement = (impact) => {
+	let increment = 0;
 	switch (impact) {
 		case 'high':
-			totalScore.value += 7 / 3;
+			increment += 7 / 3;
 			break;
 		case 'medium':
-			totalScore.value += 4 / 3;
+			increment += 4 / 3;
 			break;
 		case 'low':
-			totalScore.value++;
+			increment = 1;
 			break;
 	}
-	console.log('updated score: ', totalScore.value);
-	emit('score-updated', totalScore.value);
+	return increment;
 };
 
-// const handleAnswerSelected = (impact, selectedAnswer) => {
-// 	updateScore(impact, selectedAnswer)
-// }
+const updateScore = (impact, selectedAnswer, questionId) => {
+	// let storedAnswer = previousAnswers.value[questionId];
+
+	if (!selectedAnswer && previousAnswers.value[questionId]) {
+		totalScore.value -= assignIncrement(impact);
+	}
+
+	if (selectedAnswer) {
+		totalScore.value += assignIncrement(impact);
+	}
+
+	previousAnswers.value[questionId] = selectedAnswer;
+	emit('score-updated', totalScore.value);
+};
 </script>
 
 <template>
