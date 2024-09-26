@@ -3,9 +3,20 @@ import ScoreGraph from './ScoreGraph.vue';
 
 export default {
 	name: 'TheScoreDisplay',
+	components: {
+		ScoreGraph,
+	},
 	props: {
 		totalScore: {
 			type: Number,
+			required: true,
+		},
+		categoryScores: {
+			type: Array,
+			required: true,
+		},
+		categoryMaxScores: {
+			type: Object,
 			required: true,
 		},
 	},
@@ -19,7 +30,7 @@ export default {
 			:categoryScores="categoryScores"
 			:maxScores="categoryMaxScores"
 		/>
-		<p>Your current score: {{ totalScore }}</p>
+		<p>Your current score: {{ Math.round(totalScore) }}</p>
 	</div>
 </template>
 

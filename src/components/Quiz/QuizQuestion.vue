@@ -66,6 +66,7 @@ export default {
 }
 
 input[type='radio'] {
-	margin-right: 5px;
+	margin: 10px;
+	vertical-align: middle;
 }
 </style>

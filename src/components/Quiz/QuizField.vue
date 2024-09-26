@@ -44,7 +44,7 @@ const calculateMaxScores = () => {
 	for (const category in categories) {
 		maxScores[category] = 0;
 		for (const subcategory in categories[category]) {
-			for (const question in categories[categories][subcategory]) {
+			for (const question in categories[category][subcategory]) {
 				maxScores[category] += assignIncrement(question.impact);
 			}
 		}
@@ -52,7 +52,7 @@ const calculateMaxScores = () => {
 	categoryMaxScores.value = maxScores;
 };
 
-onMounted(() => calculateMaxScores);
+onMounted(() => calculateMaxScores());
 </script>
 
 <template>
