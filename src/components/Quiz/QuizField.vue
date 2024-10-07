@@ -7,6 +7,7 @@ const categories = Questions.categories;
 const emit = defineEmits(['score-updated']);
 
 const totalScore = ref(0);
+const categoryScores = ref({ Environment: 0, Social: 0, Governance: 0 });
 const categoryMaxScores = ref({});
 const previousAnswers = ref({});
 
@@ -26,16 +27,29 @@ const assignIncrement = (impact) => {
 	return increment;
 };
 
-const updateScore = (impact, selectedAnswer, questionId) => {
-	if (!selectedAnswer && previousAnswers.value[questionId]) {
-		totalScore.value -= assignIncrement(impact);
+const initialiseScores = () => {
+	for (const category in categories) {
+		categoryScores.value[category] = 0;
 	}
+};
+
+const updateScore = (impact, selectedAnswer, questionId, category) => {
+	const increment = assignIncrement(impact);
+
+	if (!selectedAnswer && previousAnswers.value[questionId]) {
+		totalScore.value -= increment;
+		categoryScores.value[category] -= increment;
+	}
+
 	if (selectedAnswer) {
-		totalScore.value += assignIncrement(impact);
+		totalScore.value += increment;
+		categoryScores.value[category] += increment;
 	}
 
 	previousAnswers.value[questionId] = selectedAnswer;
+
 	emit('score-updated', totalScore.value);
+	emit('category-scores-update', categoryScores.value);
 };
 
 const calculateMaxScores = () => {
@@ -44,7 +58,9 @@ const calculateMaxScores = () => {
 	for (const category in categories) {
 		maxScores[category] = 0;
 		for (const subcategory in categories[category]) {
-			for (const question in categories[category][subcategory]) {
+			const questions = categories[category][subcategory];
+			for (const questionKey in categories[category][subcategory]) {
+				const question = questions[questionKey];
 				maxScores[category] += assignIncrement(question.impact);
 			}
 		}
@@ -52,7 +68,10 @@ const calculateMaxScores = () => {
 	categoryMaxScores.value = maxScores;
 };
 
-onMounted(() => calculateMaxScores());
+onMounted(() => {
+	initialiseScores();
+	calculateMaxScores();
+});
 </script>
 
 <template>
@@ -79,6 +98,7 @@ onMounted(() => calculateMaxScores());
 						:question="question.question"
 						:impact="question.impact"
 						:questionId="`${categoryName}-${subcategoryName}-${questionId}`"
+						:category="categoryName"
 						@answer-selected="updateScore"
 					/>
 				</div>

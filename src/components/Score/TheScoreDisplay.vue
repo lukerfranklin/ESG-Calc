@@ -1,18 +1,18 @@
 <script>
-import ScoreGraph from './ScoreGraph.vue';
+// import ScoreGraph from './oldgraph.vue';
 
 export default {
 	name: 'TheScoreDisplay',
-	components: {
-		ScoreGraph,
-	},
+	// components: {
+	// 	ScoreGraph,
+	// },
 	props: {
 		totalScore: {
 			type: Number,
 			required: true,
 		},
 		categoryScores: {
-			type: Array,
+			type: Object,
 			required: true,
 		},
 		categoryMaxScores: {
@@ -20,17 +20,23 @@ export default {
 			required: true,
 		},
 	},
+	mounted() {
+		console.log('cat scores: ', this.categoryScores);
+	},
 };
 </script>
 
 <template>
 	<div class="score-display">
-		<ScoreGraph
-			:score="totalScore"
+		<!-- <ScoreGraph
+			:key="JSON.stringify(categoryScores)"
 			:categoryScores="categoryScores"
 			:maxScores="categoryMaxScores"
-		/>
-		<p>Your current score: {{ Math.round(totalScore) }}</p>
+		/> -->
+		<p>Your current total score: {{ Math.round(totalScore) }}</p>
+		<p>Environment: {{ Math.round(categoryScores.Environment) }}</p>
+		<p>Social: {{ Math.round(categoryScores.Social) }}</p>
+		<p>Governance: {{ Math.round(categoryScores.Governance) }}</p>
 	</div>
 </template>
 
