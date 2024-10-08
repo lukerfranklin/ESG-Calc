@@ -2,7 +2,7 @@
 import QuizQuestion from './QuizQuestion.vue';
 import Questions from '@/assets/ESGquestions.json';
 import { ref, defineEmits, onMounted } from 'vue';
-import TheSideNavigation from '../TheSideNavigation.vue';
+// import TheSideNavigation from '../TheSideNavigation.vue';
 
 const categories = Questions.categories;
 const emit = defineEmits(['score-updated']);
@@ -77,7 +77,7 @@ onMounted(() => {
 </script>
 
 <template>
-	<TheSideNavigation :categories="categories" />
+	<!-- <TheSideNavigation :categories="categories" /> -->
 	<div id="survey">
 		<div
 			v-for="(category, categoryName) in categories"

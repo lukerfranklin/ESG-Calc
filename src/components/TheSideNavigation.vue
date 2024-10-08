@@ -29,3 +29,40 @@ const selectCategory = (category) => {
 		</ul>
 	</nav>
 </template>
+
+<style scoped>
+#side-nav {
+	width: 200px;
+	background-color: #f8f9fa;
+	padding: 20px;
+	border-right: 1px solid #dee2e6;
+	height: 100vh;
+	overflow-y: auto;
+	position: fixed;
+}
+
+#side-nav ul {
+	list-style-type: none;
+	padding: 0;
+	margin-top: 150px;
+}
+
+#side-nav li {
+	margin: 10px 0;
+}
+
+#side-nav button {
+	width: 100%;
+	padding: 10px;
+	background-color: #232b59;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+#side-nav button:hover {
+	background-color: #0056b3;
+}
+</style>
