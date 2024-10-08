@@ -84,7 +84,7 @@ console.log('CHART ATTEMPT', chartSeries.value[0].data);
 
 <style scoped>
 .score-graph {
-	max-width: 600px;
+	max-width: 675px;
 	margin: auto;
 }
 </style>
