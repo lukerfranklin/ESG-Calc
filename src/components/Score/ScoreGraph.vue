@@ -34,6 +34,18 @@ const chartOptions = ref({
 		show: true,
 		min: 0,
 		max: 100,
+		labels: {
+			formatter: (val) => {
+				return Math.round(val) + '%';
+			},
+		},
+	},
+	tooltip: {
+		y: {
+			formatter: (val) => {
+				return Math.round(val) + '%';
+			},
+		},
 	},
 });
 
@@ -50,8 +62,7 @@ watch(
 		if (newScores && newMaxScores) {
 			const percentages = Object.entries(newScores).map(([category, score]) => {
 				const maxScore = newMaxScores[category] || 1;
-				const percentage = maxScore ? (score / maxScore) * 100 : 0;
-				return percentage;
+				return maxScore ? (score / maxScore) * 100 : 0;
 			});
 			console.log(percentages);
 			chartSeries.value = [
