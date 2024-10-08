@@ -2,9 +2,9 @@
 import QuizField from './components/Quiz/QuizField.vue';
 import TheNZGLogo from './components/TheNZGLogo.vue';
 import TheHeader from './components/TheHeader.vue';
-import { ref } from 'vue';
 import TheScoreDisplay from './components/Score/TheScoreDisplay.vue';
 import ScoreGraph from './components/Score/ScoreGraph.vue';
+import { ref } from 'vue';
 
 export default {
 	name: 'App',
