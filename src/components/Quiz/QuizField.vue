@@ -59,13 +59,14 @@ const calculateMaxScores = () => {
 		maxScores[category] = 0;
 		for (const subcategory in categories[category]) {
 			const questions = categories[category][subcategory];
-			for (const questionKey in categories[category][subcategory]) {
+			for (const questionKey in questions) {
 				const question = questions[questionKey];
 				maxScores[category] += assignIncrement(question.impact);
 			}
 		}
 	}
 	categoryMaxScores.value = maxScores;
+	emit('max-scores-calculated', categoryMaxScores.value);
 };
 
 onMounted(() => {

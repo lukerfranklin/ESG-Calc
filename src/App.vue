@@ -17,26 +17,27 @@ export default {
 	},
 	setup() {
 		const totalScore = ref(0);
-		let categoryScores = ref({
+		const categoryScores = ref({
 			Environment: 0,
 			Social: 0,
 			Governance: 0,
 		});
-		const categoryMaxScores = ref({
-			Environment: 100,
-			Social: 100,
-			Governance: 100,
-		});
+		const categoryMaxScores = ref({});
 		const updateTotalScore = (newScore) => (totalScore.value = newScore);
 		const updateCategoryScores = (newCategoryScores) => {
 			categoryScores.value = { ...newCategoryScores };
 		};
+		const updateCategoryMaxScores = (newMaxScores) => {
+			categoryMaxScores.value = { ...newMaxScores };
+		};
+
 		return {
 			totalScore,
 			updateTotalScore,
 			categoryScores,
 			categoryMaxScores,
 			updateCategoryScores,
+			updateCategoryMaxScores,
 		};
 	},
 };
@@ -54,9 +55,11 @@ export default {
 		:categoryScores="categoryScores"
 		:categoryMaxScores="categoryMaxScores"
 	/>
+	<p>{{ categoryMaxScores }}</p>
 	<QuizField
 		@score-updated="updateTotalScore"
 		@category-scores-update="updateCategoryScores"
+		@max-scores-calculated="updateCategoryMaxScores"
 	/>
 </template>
 

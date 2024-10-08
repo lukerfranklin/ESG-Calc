@@ -10,7 +10,7 @@ const props = defineProps({
 			Governance: 0,
 		}),
 	},
-	maxScores: {
+	categoryMaxScores: {
 		type: Object,
 		default: () => ({
 			Environment: 100,
@@ -30,6 +30,11 @@ const chartOptions = ref({
 	xaxis: {
 		categories: Object.keys(props.categoryScores),
 	},
+	yaxis: {
+		show: true,
+		min: 0,
+		max: 100,
+	},
 });
 
 const chartSeries = ref([
@@ -40,21 +45,34 @@ const chartSeries = ref([
 ]);
 
 watch(
-	() => props.categoryScores,
-	(newScores) => {
-		if (newScores) {
+	() => [props.categoryScores, props.categoryMaxScores],
+	([newScores, newMaxScores]) => {
+		if (newScores && newMaxScores) {
 			const percentages = Object.entries(newScores).map(([category, score]) => {
-				const maxScore = props.maxScores[category];
-				return maxScore ? (score / maxScore) * 100 : 0;
+				const maxScore = newMaxScores[category] || 1;
+				const percentage = maxScore ? (score / maxScore) * 100 : 0;
+				return percentage;
 			});
-			chartSeries.value[0].data = percentages;
+			console.log(percentages);
+			chartSeries.value = [
+				{
+					name: 'Score',
+					data: percentages,
+				},
+			];
+
+			chartOptions.value.xaxis.categories = Object.keys(newScores);
 		}
 	},
 	{ immediate: true } // Ensure it runs initially
 );
+
+console.log('CHART DATA', chartSeries);
+console.log('CHART ATTEMPT', chartSeries.value[0].data);
 </script>
 
 <template>
+	<p>{{}}</p>
 	<div class="score-graph">
 		<apexchart
 			type="radar"
