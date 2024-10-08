@@ -33,9 +33,9 @@ const selectCategory = (category) => {
 <style scoped>
 #side-nav {
 	width: 200px;
-	background-color: #f8f9fa;
+	background-color: #f3f4f6;
 	padding: 20px;
-	border-right: 1px solid #dee2e6;
+	border-right: 1px solid #2c3e50;
 	height: 100vh;
 	overflow-y: auto;
 	position: fixed;
