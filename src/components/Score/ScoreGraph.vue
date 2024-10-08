@@ -77,13 +77,9 @@ watch(
 	},
 	{ immediate: true } // Ensure it runs initially
 );
-
-console.log('CHART DATA', chartSeries);
-console.log('CHART ATTEMPT', chartSeries.value[0].data);
 </script>
 
 <template>
-	<p>{{}}</p>
 	<div class="score-graph">
 		<apexchart
 			type="radar"

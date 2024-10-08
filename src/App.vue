@@ -55,7 +55,6 @@ export default {
 		:categoryScores="categoryScores"
 		:categoryMaxScores="categoryMaxScores"
 	/>
-	<p>{{ categoryMaxScores }}</p>
 	<QuizField
 		@score-updated="updateTotalScore"
 		@category-scores-update="updateCategoryScores"

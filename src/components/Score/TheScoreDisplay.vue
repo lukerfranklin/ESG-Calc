@@ -33,10 +33,28 @@ export default {
 			:categoryScores="categoryScores"
 			:maxScores="categoryMaxScores"
 		/> -->
-		<p>Your current total score: {{ Math.round(totalScore) }}</p>
-		<p>Environment: {{ Math.round(categoryScores.Environment) }}</p>
-		<p>Social: {{ Math.round(categoryScores.Social) }}</p>
-		<p>Governance: {{ Math.round(categoryScores.Governance) }}</p>
+		<p>
+			Your current total score: {{ Math.round(totalScore) }} /
+			{{
+				Math.round(
+					categoryMaxScores.Environment +
+						categoryMaxScores.Social +
+						categoryMaxScores.Governance
+				)
+			}}
+		</p>
+		<p>
+			Environment: {{ Math.round(categoryScores.Environment) }} /
+			{{ Math.round(categoryMaxScores.Environment) }}
+		</p>
+		<p>
+			Social: {{ Math.round(categoryScores.Social) }} /
+			{{ Math.round(categoryMaxScores.Social) }}
+		</p>
+		<p>
+			Governance: {{ Math.round(categoryScores.Governance) }} /
+			{{ Math.round(categoryMaxScores.Governance) }}
+		</p>
 	</div>
 </template>
 
