@@ -127,11 +127,14 @@ onMounted(() => {
 .category-title {
 	font-size: 24px;
 	color: #2c3e50;
-	border-bottom: 2px solid #2c3e50;
+	border-bottom: 2px solid #232b59;
 	padding-bottom: 10px;
 }
 
 .subcategory {
+	background-color: #9ecfdc;
+	padding: 15px;
+	border-radius: 10px;
 	margin-left: 20px;
 	margin-bottom: 15px;
 }

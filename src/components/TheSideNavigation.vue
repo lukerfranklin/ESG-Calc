@@ -33,7 +33,7 @@ const selectCategory = (category) => {
 <style scoped>
 #side-nav {
 	width: 200px;
-	background-color: #f3f4f6;
+	background-color: #6284a5;
 	padding: 20px;
 	border-right: 1px solid #2c3e50;
 	height: 100vh;
@@ -59,10 +59,11 @@ const selectCategory = (category) => {
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-	transition: background-color 0.3s;
+	transition: background-color 0.3s, transform 0.2s;
 }
 
 #side-nav button:hover {
 	background-color: #0056b3;
+	transform: scale(1.05);
 }
 </style>
