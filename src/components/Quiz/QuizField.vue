@@ -11,6 +11,12 @@ const categoryScores = ref({ Environment: 0, Social: 0, Governance: 0 });
 const categoryMaxScores = ref({});
 const previousAnswers = ref({});
 
+const userAnswers = ref({
+	Environment: [],
+	Social: [],
+	Governance: [],
+});
+
 const assignIncrement = (impact) => {
 	let increment = 0;
 	switch (impact) {
@@ -33,6 +39,18 @@ const initialiseScores = () => {
 	}
 };
 
+const storeAnswers = (selectedAnswer, questionId, category) => {
+	if (!selectedAnswer) {
+		userAnswers.value[category].push(questionId);
+	} else {
+		const index = userAnswers.value[category].indexOf(questionId);
+		if (index !== -1) {
+			userAnswers.value[category].splice(index, 1);
+		}
+	}
+	emit('user-answers-update', userAnswers.value);
+};
+
 const updateScore = (impact, selectedAnswer, questionId, category) => {
 	const increment = assignIncrement(impact);
 
@@ -50,6 +68,11 @@ const updateScore = (impact, selectedAnswer, questionId, category) => {
 
 	emit('score-updated', totalScore.value);
 	emit('category-scores-update', categoryScores.value);
+};
+
+const handleAnswerChange = (impact, selectedAnswer, questionId, category) => {
+	storeAnswers(selectedAnswer, questionId, category);
+	updateScore(impact, selectedAnswer, questionId, category);
 };
 
 const calculateMaxScores = () => {
@@ -100,7 +123,7 @@ onMounted(() => {
 						:impact="question.impact"
 						:questionId="`${categoryName}-${subcategoryName}-${questionId}`"
 						:category="categoryName"
-						@answer-selected="updateScore"
+						@answer-selected="handleAnswerChange"
 					/>
 				</div>
 			</div>

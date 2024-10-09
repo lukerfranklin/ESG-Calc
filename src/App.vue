@@ -5,6 +5,7 @@ import TheHeader from './components/TheHeader.vue';
 import { ref } from 'vue';
 import TheScoreDisplay from './components/Score/TheScoreDisplay.vue';
 import ScoreGraph from './components/Score/ScoreGraph.vue';
+// import ActionsDisplay from './components/Actions/ActionsDisplay.vue';
 
 export default {
 	name: 'App',
@@ -50,6 +51,7 @@ export default {
 		:categoryScores="categoryScores"
 		:categoryMaxScores="categoryMaxScores"
 	/>
+
 	<TheScoreDisplay
 		:totalScore="totalScore"
 		:categoryScores="categoryScores"
@@ -60,6 +62,11 @@ export default {
 		@category-scores-update="updateCategoryScores"
 		@max-scores-calculated="updateCategoryMaxScores"
 	/>
+	<!-- <ActionsDisplay
+		:categoryScores="categoryScores"
+		:categoryMaxScores="categoryMaxScores"
+		:userAnswers="userAnswers"
+	/> -->
 </template>
 
 <style>

@@ -27,7 +27,7 @@ export default {
 	<div class="survey-question">
 		<p>{{ question }}</p>
 
-		<div class="options">
+		<div class="radio-group">
 			<input
 				type="radio"
 				:id="`${questionId}-yes`"
@@ -70,5 +70,18 @@ export default {
 input[type='radio'] {
 	margin: 10px;
 	vertical-align: middle;
+}
+
+.radio-group {
+	display: flex;
+	flex-direction: column;
+	margin: 20px 0;
+}
+
+.radio-label {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	margin: 10px;
 }
 </style>

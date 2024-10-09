@@ -20,9 +20,6 @@ export default {
 			required: true,
 		},
 	},
-	mounted() {
-		console.log('cat scores: ', this.categoryScores);
-	},
 };
 </script>
 
