@@ -1,83 +1,64 @@
-<script setup>
+<script>
 import QuizQuestion from './QuizQuestion.vue';
 import Questions from '@/assets/ESGquestions.json';
-import { ref, defineEmits, onMounted } from 'vue';
+import { ref, watch } from 'vue';
 // import TheSideNavigation from '../TheSideNavigation.vue';
 
-const categories = Questions.categories;
-const emit = defineEmits(['score-updated']);
+export default {
+	name: 'QuizField',
+	components: {
+		QuizQuestion,
+	},
+	props: {
+		currentCategory: {
+			type: String,
+			required: true,
+		},
+		currentSubcategory: {
+			type: String,
+			required: true,
+		},
+	},
+	setup(props, { emit }) {
+		const questions = ref([]);
+		const score = ref(0);
 
-const totalScore = ref(0);
-const categoryScores = ref({ Environment: 0, Social: 0, Governance: 0 });
-const categoryMaxScores = ref({});
-const previousAnswers = ref({});
+		watch(
+			[() => props.currentCategory, () => props.currentSubcategory],
+			([newCategory, newSubcategory]) => {
+				const categoryQuestions =
+					Questions.categries[newCategory]?.[newSubcategory];
+				questions.value = Object.values(categoryQuestions);
+			},
+			{ imediate: true }
+		);
+		const updateScore = (newScore) => {
+			score.value += newScore;
+			emit('score-updated', score.value);
+		};
 
-const assignIncrement = (impact) => {
-	let increment = 0;
-	switch (impact) {
-		case 'high':
-			increment += 7 / 3;
-			break;
-		case 'medium':
-			increment += 4 / 3;
-			break;
-		case 'low':
-			increment = 1;
-			break;
-	}
-	return increment;
+		console.log('questions', Questions);
+
+		return { questions, score, updateScore };
+	},
 };
-
-const initialiseScores = () => {
-	for (const category in categories) {
-		categoryScores.value[category] = 0;
-	}
-};
-
-const updateScore = (impact, selectedAnswer, questionId, category) => {
-	const increment = assignIncrement(impact);
-
-	if (!selectedAnswer && previousAnswers.value[questionId]) {
-		totalScore.value -= increment;
-		categoryScores.value[category] -= increment;
-	}
-
-	if (selectedAnswer) {
-		totalScore.value += increment;
-		categoryScores.value[category] += increment;
-	}
-
-	previousAnswers.value[questionId] = selectedAnswer;
-
-	emit('score-updated', totalScore.value);
-	emit('category-scores-update', categoryScores.value);
-};
-
-const calculateMaxScores = () => {
-	const maxScores = {};
-
-	for (const category in categories) {
-		maxScores[category] = 0;
-		for (const subcategory in categories[category]) {
-			const questions = categories[category][subcategory];
-			for (const questionKey in questions) {
-				const question = questions[questionKey];
-				maxScores[category] += assignIncrement(question.impact);
-			}
-		}
-	}
-	categoryMaxScores.value = maxScores;
-	emit('max-scores-calculated', categoryMaxScores.value);
-};
-
-onMounted(() => {
-	initialiseScores();
-	calculateMaxScores();
-});
 </script>
 
 <template>
-	<!-- <TheSideNavigation :categories="categories" /> -->
+	<div id="survey">
+		<div v-if="currentCategory && currentSubcategory">
+			<h2>Quiz: {{ currentCategory }} : {{ currentSubcategory }}</h2>
+			<QuizQuestion
+				v-for="(question, index) in questions"
+				:key="index"
+				:question="question"
+				@answer-selected="updateScore"
+			/>
+		</div>
+	</div>
+</template>
+
+<!-- <template>
 	<div id="survey">
 		<div
 			v-for="(category, categoryName) in categories"
@@ -108,7 +89,7 @@ onMounted(() => {
 			</div>
 		</div>
 	</div>
-</template>
+</template> -->
 
 <style scoped>
 #survey {

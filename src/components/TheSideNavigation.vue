@@ -1,30 +1,73 @@
-<script setup>
-import { ref, defineProps } from 'vue';
+<script>
+// import { select } from 'd3';
+// import { ref, defineProps } from 'vue';
 
-defineProps({
-	categories: {
-		type: Object,
-		required: true,
+export default {
+	name: 'TheSideNavigation',
+	props: {
+		categories: {
+			type: Array,
+			rewuired: true,
+		},
+		subcategories: {
+			type: Array,
+			required: true,
+		},
 	},
-});
-
-const currentCategory = ref(null);
-
-const selectCategory = (category) => {
-	currentCategory.value = currentCategory.value === category ? null : category;
+	data() {
+		return {
+			currentCategory: null,
+		};
+	},
+	methods: {
+		selectCategory(category) {
+			this.currentCategory = category;
+			this.$emit('category-selected', category);
+		},
+		selectSubcategory(subcategory) {
+			this.$emit('subcategory-selected', subcategory);
+		},
+	},
 };
+
+// defineProps({
+// 	categories: {
+// 		type: Array,
+// 		required: true,
+// 	},
+// 	subcategories: {
+// 		type: Array
+// 	}
+// });
+
+// const currentCategory = ref(null);
+
+// const selectCategory = (category) => {
+// 	currentCategory.value = currentCategory.value === category ? null : category;
+// };
 </script>
 
 <template>
 	<nav id="side-nav">
 		<ul>
 			<li
-				v-for="(category, categoryTitle) in categories"
+				v-for="category in categories"
 				:key="category"
+				@click="selectCategory(category)"
 			>
-				<button @click="selectCategory(category)">
-					{{ categoryTitle }}
-				</button>
+				{{ category }}
+				<ul v-if="category === currentCategory">
+					<li
+						v-for="subcategory in subcategories"
+						:key="subcategory"
+						@click="selectSubcategory(subcategory)"
+					>
+						{{ subcategory }}
+					</li>
+				</ul>
+				<!-- <button @click="selectCategory(category)">
+					{{ category }}
+				</button> -->
 			</li>
 		</ul>
 	</nav>

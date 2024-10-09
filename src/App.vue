@@ -19,7 +19,9 @@ export default {
 		TheSideNavigation,
 	},
 	setup() {
-		const categories = Questions.categories;
+		const categories = Object.keys(Questions.categories);
+		const subcategories = ref([]);
+
 		const totalScore = ref(0);
 		const categoryScores = ref({
 			Environment: 0,
@@ -27,6 +29,10 @@ export default {
 			Governance: 0,
 		});
 		const categoryMaxScores = ref({});
+
+		const currentCategory = ref(categories[0]);
+		const currentSubcategory = ref(null);
+
 		const updateTotalScore = (newScore) => (totalScore.value = newScore);
 		const updateCategoryScores = (newCategoryScores) => {
 			categoryScores.value = { ...newCategoryScores };
@@ -34,15 +40,24 @@ export default {
 		const updateCategoryMaxScores = (newMaxScores) => {
 			categoryMaxScores.value = { ...newMaxScores };
 		};
+		const updateSubcategories = (category) => {
+			currentCategory.value = category;
+			subcategories.value = Object.keys(Questions.categories[category]);
+			currentSubcategory.value = subcategories.value[0];
+		};
 
 		return {
 			totalScore,
 			categories,
-			updateTotalScore,
+			subcategories,
 			categoryScores,
 			categoryMaxScores,
+			currentCategory,
+			currentSubcategory,
+			updateTotalScore,
 			updateCategoryScores,
 			updateCategoryMaxScores,
+			updateSubcategories,
 		};
 	},
 };
@@ -50,7 +65,12 @@ export default {
 
 <template>
 	<div id="app-container">
-		<TheSideNavigation :categories="categories" />
+		<TheSideNavigation
+			:categories="categories"
+			:subcategories="subcategories"
+			@category-selected="updateSubcategories"
+			@subcategory-selected="selectedSubcategory = $event"
+		/>
 		<div id="app-content">
 			<TheNZGLogo />
 			<TheHeader />
@@ -64,6 +84,8 @@ export default {
 				:categoryMaxScores="categoryMaxScores"
 			/>
 			<QuizField
+				:currentCategory="currentCategory"
+				:currentSubcategory="currentSubcategory"
 				@score-updated="updateTotalScore"
 				@category-scores-update="updateCategoryScores"
 				@max-scores-calculated="updateCategoryMaxScores"
