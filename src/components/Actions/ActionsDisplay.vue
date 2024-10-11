@@ -36,12 +36,18 @@ export default {
 			return this.userAnswers[weakestCategory.category];
 		},
 	},
+
+	computed: {
+		weakestCategory() {
+			return this.findWeakestCategory();
+		},
+	},
 };
 </script>
 
 <template>
-	<div v-if="findWeakestCategory()">
-		<h2>Your Weakest Category: {{ findWeakestCategory().category }}</h2>
+	<div v-if="findWeakestCategory">
+		<h2>Your Weakest Category: {{ weakestCategory.category }}</h2>
 		<p>Areas to improve:</p>
 		<ul>
 			<li

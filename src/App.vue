@@ -5,7 +5,7 @@ import TheHeader from './components/TheHeader.vue';
 import { ref } from 'vue';
 import TheScoreDisplay from './components/Score/TheScoreDisplay.vue';
 import ScoreGraph from './components/Score/ScoreGraph.vue';
-// import ActionsDisplay from './components/Actions/ActionsDisplay.vue';
+import ActionsDisplay from './components/Actions/ActionsDisplay.vue';
 
 export default {
 	name: 'App',
@@ -15,6 +15,7 @@ export default {
 		TheHeader,
 		TheScoreDisplay,
 		ScoreGraph,
+		ActionsDisplay,
 	},
 	setup() {
 		const totalScore = ref(0);
@@ -24,6 +25,8 @@ export default {
 			Governance: 0,
 		});
 		const categoryMaxScores = ref({});
+		const userAnswers = ref({ Environment: [], Social: [], Governance: [] });
+
 		const updateTotalScore = (newScore) => (totalScore.value = newScore);
 		const updateCategoryScores = (newCategoryScores) => {
 			categoryScores.value = { ...newCategoryScores };
@@ -37,6 +40,7 @@ export default {
 			updateTotalScore,
 			categoryScores,
 			categoryMaxScores,
+			userAnswers,
 			updateCategoryScores,
 			updateCategoryMaxScores,
 		};
@@ -62,11 +66,11 @@ export default {
 		@category-scores-update="updateCategoryScores"
 		@max-scores-calculated="updateCategoryMaxScores"
 	/>
-	<!-- <ActionsDisplay
+	<ActionsDisplay
 		:categoryScores="categoryScores"
 		:categoryMaxScores="categoryMaxScores"
 		:userAnswers="userAnswers"
-	/> -->
+	/>
 </template>
 
 <style>
