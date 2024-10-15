@@ -4,67 +4,97 @@
             "Climate Change": {
                 "1": {
                     "question": "Does your company have a documented process for assessing the impacts that climate change will have on your company?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Consider completing a climate risk assessment to identify potential impacts.",
+                    "link": "https://www.cdp.net/en/guidance/guidance-for-companies"
                 },
                 "2": {
                     "question": "Does your company have plans to implement a process for assessing the impacts that climate change will have on your company?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Start developing a climate risk assessment plan to understand potential vulnerabilities.",
+                    "link": "https://www.cdp.net/en/guidance/guidance-for-companies"
                 },
                 "3": {
                     "question": "Does your company have a process for assessing the impacts that climate change will have on your supply chain?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Implement a double materiality assessment to evaluate supply chain risks and opportunities.",
+                    "link": "https://www.cdp.net/en/guidance/guidance-for-companies"
                 },
                 "4": {
                     "question": "Has your company carried out a climate change impact assessment for all suppliers to your company?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Conduct assessments to gauge how climate change affects your suppliers.",
+                    "link": "https://www.cdp.net/en/guidance/guidance-for-companies"
                 },
                 "5": {
                     "question": "Does your company have a process for assessing the opportunities climate change may present to your company?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Engage in market analysis to explore new opportunities arising from climate change.",
+                    "link": "https://www.cdp.net/en/guidance/guidance-for-companies"
                 },
                 "6": {
                     "question": "Does your company assess the exposure to the risk of stranded assets due to climate change?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Perform a climate risk assessment focused on potential stranded assets.",
+                    "link": "https://www.cdp.net/en/guidance/guidance-for-companies"
                 },
                 "7": {
                     "question": "Does your company report all Scope 1 Carbon Emissions?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Begin producing a Greenhouse Gas Emissions Report to enhance transparency.",
+                    "link": "https://ghgprotocol.org/"
                 },
                 "8": {
                     "question": "Does your company report all Scope 2 Carbon Emissions?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Consider reporting all Scope 2 emissions to fully understand your carbon footprint.",
+                    "link": "https://ghgprotocol.org/"
                 },
                 "9": {
                     "question": "Does your company report all applicable Scope 3 Carbon Emissions?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Expand your reporting to include Scope 3 emissions for a comprehensive view.",
+                    "link": "https://ghgprotocol.org/"
                 },
                 "10": {
                     "question": "Have you achieved independent third-party assurance in regards to your company's emissions data?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Pursue third-party assurance to enhance the credibility of your emissions data.",
+                    "link": ""
                 },
                 "11": {
                     "question": "Do you disclose emissions via CDP?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Consider disclosing emissions through the CDP for improved transparency and accountability.",
+                    "link": "https://www.cdp.net/en"
                 }
             },
             "Energy Use & Waste": {
                 "1": {
                     "question": "Can your company evidence practices to reduce waste to landfill?",
-                    "impact": "medium"
+                    "impact": "medium",
+                    "advice": "Implement waste reduction initiatives and monitor their effectiveness.",
+                    "link": "https://www.epa.gov/recycle"
                 }
             },
             "Environmental Policy & Management": {
                 "1": {
                     "question": "Does your company have an Environmental Policy?",
-                    "impact": "medium"
+                    "impact": "medium",
+                    "advice": "Develop and document an Environmental Policy to guide sustainable practices.",
+                    "link": "https://www.iso.org/standards/popular/iso-14000-family"
                 },
                 "2": {
                     "question": "Does your company have an ISO 14001 certification?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Consider pursuing ISO 14001 certification to demonstrate environmental management commitment.",
+                    "link": "https://www.iso.org/standards/popular/iso-14000-family"
                 },
                 "3": {
                     "question": "Does your company supply goods or materials that may have an environmental impact on your customer/client?",
-                    "impact": "low"
+                    "impact": "low",
+                    "advice": "Evaluate the environmental impacts of your products and communicate these to customers.",
+                    "link": "https://www.epa.gov/sustainability"
                 }
             }
         },
@@ -73,95 +103,137 @@
             "Code of Conduct, Ethical Issues & Whistleblowing": {
                 "1": {
                     "question": "Training on this process at least annually for all existing staff and for all new staff upon induction?",
-                    "impact": "medium"
+                    "impact": "medium",
+                    "advice": "Implement regular training sessions to ensure all staff understand ethical practices.",
+                    "link": ""
                 },
                 "2": {
                     "question": "The requirement that all concerns must be dealt with confidentially?",
-                    "impact": "medium"
+                    "impact": "medium",
+                    "advice": "Establish clear guidelines for handling concerns confidentially to foster trust.",
+                    "link": ""
                 },
                 "3": {
                     "question": "Protection for employees reporting a concern, resulting in formal action in the event of harassment or victimisation?",
-                    "impact": "medium"
+                    "impact": "medium",
+                    "advice": "Create robust protections for whistleblowers to encourage reporting of concerns.",
+                    "link": "https://www.whistleblower.org/"
                 },
                 "4": {
                     "question": "A statement that employees should not be prevented from reporting a concern?",
-                    "impact": "medium"
+                    "impact": "medium",
+                    "advice": "Ensure clear communication that reporting concerns is encouraged and protected.",
+                    "link": ""
                 }
             },
             "Diversity & Inclusion": {
                 "1": {
                     "question": "Does your company have a documented Diversity & Inclusion policy?",
-                    "impact": "medium"
+                    "impact": "medium",
+                    "advice": "Develop a Diversity & Inclusion policy to promote an equitable workplace.",
+                    "link": ""
                 },
                 "2": {
                     "question": "Commitment in providing a work environment free from discrimination and harassment on any grounds protected by the UK Equality Act 2010 and any equivalent legislation or regulation in other jurisdictions in which your company operates?",
-                    "impact": "medium"
+                    "impact": "medium",
+                    "advice": "Reinforce your commitment to non-discrimination through policy and training.",
+                    "link": ""
                 },
                 "3": {
                     "question": "Controls to prevent discrimination, bullying or harassment based on sexual orientation, gender identity, race, ethnicity, or disability?",
-                    "impact": "medium"
+                    "impact": "medium",
+                    "advice": "Implement strong controls and training to prevent all forms of discrimination.",
+                    "link": ""
                 }
             },
             "Health & Safety":{
                 "1": {
                     "question": "Does your company have a documented Health & Safety Policy?",
-                    "impact": "low"
+                    "impact": "low",
+                    "advice": "Draft a Health & Safety Policy to protect employees and ensure compliance.",
+                    "link": ""
                 },
                 "2": {
                     "question": "Does your company have an ISO 45001 certification?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Consider obtaining ISO 45001 certification to demonstrate commitment to health and safety.",
+                    "link": "https://www.iso.org/iso-45001-occupational-health-and-safety.html"
                 }
             },
             "Labour Standards & Human Rights": {
                 "1": {
                     "question": "Does your company have a written policy and/or documented processes relating to Labour Standards?",
-                    "impact": "medium"
+                    "impact": "medium",
+                    "advice": "Develop a written policy to clearly communicate your commitment to labour standards.",
+                    "link": "https://www.ilo.org/international-labour-standards"
                 },
                 "2": {
                     "question": "Identification of human rights risks in your supply chain, including slavery and human trafficking?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Conduct thorough assessments to identify and mitigate human rights risks in your supply chain.",
+                    "link": ""
                 },
                 "3": {
                     "question": "Minimum labour standards for your suppliers?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Establish and communicate minimum labour standards for all suppliers.",
+                    "link": ""
                 },
                 "4": {
                     "question": "Monitoring and/or assessment of your suppliers' human rights performance?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Implement regular monitoring to ensure compliance with human rights standards in your supply chain.",
+                    "link": ""
                 },
                 "5": {
                     "question": "Workers' collective bargaining, freedom of association and union membership rights?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Support workers' rights to collective bargaining and union membership through clear policies.",
+                    "link": ""
                 },
                 "6": {
                     "question": "Procedures for permanent, temporary and agency workers ensuring that, at a minimum, working hours comply with national legal standards, are reasonable compared to other companies in your sector, and do not exceed ILO standards?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Review and update your procedures to ensure compliance with all relevant standards.",
+                    "link": ""
                 },
                 "7": {
                     "question": "Does your company ensure all workers are paid at least the official national minimum wage?",
-                    "impact": "low"
+                    "impact": "low",
+                    "advice": "Implement measures to guarantee all workers receive at least the minimum wage.",
+                    "link": ""
                 },
                 "8": {
                     "question": "Has your company signed up to a formal process for ensuring living wage requirements are met?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Join initiatives to ensure all workers receive a living wage.",
+                    "link": ""
                 }
             },
             "Modern Slavery, Forced Labour & Human Trafficking": {
                 "1": {
                     "question": "Has your company published a Modern Slavery statement on your website in the last 12 months?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Ensure timely publication of your Modern Slavery statement to promote transparency.",
+                    "link": ""
                 },
                 "2": {
                     "question": "Do you have terms and conditions with your suppliers which specifically forbid the use of slavery, servitude and forced or compulsory labour; and human trafficking?",
-                    "impact": "medium"
+                    "impact": "medium",
+                    "advice": "Review and update supplier agreements to include clear anti-slavery clauses.",
+                    "link": ""
                 },
                 "3": {
                     "question": "Do you require that your suppliers carry out training to raise awareness of such practices in your supply chain and to ensure transparency and cooperation to resolve issues?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Mandate training for suppliers to build awareness and foster cooperation against modern slavery.",
+                    "link": ""
                 },
                 "4": {
                     "question": "Do you carry out supplier audits and checks on a regular basis to ensure that no such practices occur and do you maintain records available for examination of such audits?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Establish a routine for audits to monitor and document supplier compliance with ethical practices.",
+                    "link": ""
                 }
         }
     },
@@ -169,49 +241,69 @@
             "Business Conduct": {
                 "1": {
                     "question": "Does your company have a written policy and/or documented procedure(s) for Conflicts of Interest?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Create a documented policy to guide employees on managing conflicts of interest.",
+                    "link": ""
                 },
                 "2": {
                     "question": "Sanctions check?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Implement a sanctions check process to ensure compliance with legal and ethical standards.",
+                    "link": ""
                 },
                 "3": {
                     "question": "CIFAS checks?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Adopt CIFAS checks to mitigate fraud risks in your operations.",
+                    "link": ""
                 },
                 "4": {
                     "question": "Politically Exposed Person checks?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Conduct thorough checks for Politically Exposed Persons to ensure compliance.",
+                    "link": ""
                 },
                 "5": {
                     "question": "Does your company have a written policy and procedure(s) for managing compliance with Part 3 of the Criminal Finances Act 2017 and/or any equivalent facilitation of tax evasion legislation or regulation in other jurisdictions in which your company operates?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Develop and document policies to ensure compliance with financial legislation.",
+                    "link": ""
                 },
                 "6": {
                     "question": "Are pre-employment vetting checks undertaken for all employees?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Implement comprehensive vetting checks to ensure qualified and trustworthy hires.",
+                    "link": ""
                 }
             },
             "Customer Relationships": {
                 "1": {
                     "question": "Does your company have a policy or process for meeting the needs of vulnerable customers?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Develop a policy to ensure vulnerable customers receive adequate support and resources.",
+                    "link": ""
                 }
             },
             "Supplier Relationships": {
                 "1": {
                     "question": "Has your Company signed up to a timely payment code in any jurisdiction in which it operates, for example in the UK, the Prompt Payment Code?",
-                    "impact": "high"
+                    "impact": "high",
+                    "advice": "Consider signing a timely payment code to support fair practices with suppliers.",
+                    "link": ""
                 }
             },
             "Corporate Social Responsibility & Sustainability": {
                 "1": {
                     "question": "Does your company have a Corporate Social Responsibility (CSR) policy that outlines its commitment to sustainability and ethical practices?",
-                    "impact": "medium"
+                    "impact": "medium",
+                    "advice": "Develop a CSR policy to clearly define your commitment to sustainability and ethics.",
+                    "link": "https://www.iso.org/iso-26000-social-responsibility.html"
                 },
                 "2": {
                     "question": "Does your company publish an annual sustainability report that details its environmental and social impacts and the measures taken to address them?",
-                    "impact": "medium"
+                    "impact": "medium",
+                    "advice": "Publish an annual sustainability report to improve transparency and accountability.",
+                    "link": ""
                 }
             }
         }
