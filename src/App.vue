@@ -25,7 +25,12 @@ export default {
 			Governance: 0,
 		});
 		const categoryMaxScores = ref({});
-		const userAnswers = ref({ Environment: [], Social: [], Governance: [] });
+		const userNegativeAnswers = ref({
+			Environment: {},
+			Social: {},
+			Governance: {},
+		});
+		const adviceArray = ref([]);
 
 		const updateTotalScore = (newScore) => (totalScore.value = newScore);
 		const updateCategoryScores = (newCategoryScores) => {
@@ -34,15 +39,24 @@ export default {
 		const updateCategoryMaxScores = (newMaxScores) => {
 			categoryMaxScores.value = { ...newMaxScores };
 		};
+		const updateUserAnswers = (newUserAnswers) => {
+			userNegativeAnswers.value = { ...newUserAnswers };
+		};
+		const updateAdviceArray = (newAdviceArray) => {
+			adviceArray.value = [...newAdviceArray];
+		};
 
 		return {
 			totalScore,
 			updateTotalScore,
 			categoryScores,
 			categoryMaxScores,
-			userAnswers,
+			userNegativeAnswers,
+			adviceArray,
+			updateAdviceArray,
 			updateCategoryScores,
 			updateCategoryMaxScores,
+			updateUserAnswers,
 		};
 	},
 };
@@ -55,7 +69,6 @@ export default {
 		:categoryScores="categoryScores"
 		:categoryMaxScores="categoryMaxScores"
 	/>
-
 	<TheScoreDisplay
 		:totalScore="totalScore"
 		:categoryScores="categoryScores"
@@ -65,11 +78,14 @@ export default {
 		@score-updated="updateTotalScore"
 		@category-scores-update="updateCategoryScores"
 		@max-scores-calculated="updateCategoryMaxScores"
+		@user-answers-update="updateUserAnswers"
+		@advice-updated="updateAdviceArray"
 	/>
 	<ActionsDisplay
 		:categoryScores="categoryScores"
 		:categoryMaxScores="categoryMaxScores"
-		:userAnswers="userAnswers"
+		:userAnswers="userNegativeAnswers"
+		:adviceArray="adviceArray"
 	/>
 </template>
 

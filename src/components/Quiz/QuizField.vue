@@ -11,10 +11,15 @@ const categoryScores = ref({ Environment: 0, Social: 0, Governance: 0 });
 const categoryMaxScores = ref({});
 const previousAnswers = ref({});
 
+// const userAnswers = ref({
+// 	Environment: [],
+// 	Social: [],
+// 	Governance: [],
+// });
 const userAnswers = ref({
-	Environment: [],
-	Social: [],
-	Governance: [],
+	Environment: {},
+	Social: {},
+	Governance: {},
 });
 
 const assignIncrement = (impact) => {
@@ -39,17 +44,76 @@ const initialiseScores = () => {
 	}
 };
 
-const storeAnswers = (selectedAnswer, questionId, category) => {
+const storeAnswers = (
+	selectedAnswer,
+	questionId,
+	category,
+	subcategory,
+	questionData
+) => {
 	if (!selectedAnswer) {
-		userAnswers.value[category].push(questionId);
+		if (!userAnswers.value[category][subcategory]) {
+			userAnswers.value[category][subcategory] = {};
+		}
+		userAnswers.value[category][subcategory][questionId] = {
+			question: questionData.question,
+			advice: questionData.advice,
+			impact: questionData.impact,
+			link: questionData.link,
+		};
 	} else {
-		const index = userAnswers.value[category].indexOf(questionId);
-		if (index !== -1) {
-			userAnswers.value[category].splice(index, 1);
+		if (userAnswers.value[category][subcategory]) {
+			delete userAnswers.value[category][subcategory][questionId];
 		}
 	}
 	emit('user-answers-update', userAnswers.value);
+	getAdviceArray();
 };
+
+// Method to get an array of the advice properties from the userAnswers object
+const getAdviceArray = () => {
+	const adviceArray = [];
+
+	for (const category in userAnswers.value) {
+		for (const subcategory in userAnswers.value[category]) {
+			for (const questionId in userAnswers.value[category][subcategory]) {
+				const answerData = userAnswers.value[category][subcategory][questionId];
+				if (answerData.advice) {
+					adviceArray.push(answerData.advice);
+				}
+			}
+		}
+	}
+	emit('advice-updated', adviceArray);
+	return adviceArray;
+};
+
+// const storeAnswers = (
+// 	selectedAnswer,
+// 	questionId,
+// 	category
+// 	// subcategory,
+// 	// questionData
+// ) => {
+// 	if (!selectedAnswer) {
+// 		userAnswers.value[category].push(questionId);
+// 		// userAnswers.value[category][subcategory][questionId] = {
+// 		// 	questions: questionData.question,
+// 		// 	impact: questionData.impact,
+// 		// 	advice: questionData.advice,
+// 		// 	link: questionData.link,
+// 		// };
+// 	} else {
+// 		const index = userAnswers.value[category].indexOf(questionId);
+// 		if (index !== -1) {
+// 			userAnswers.value[category].splice(index, 1);
+// 		}
+// 		// if (userAnswers.value[category][subcategory][questionId]) {
+// 		// 	delete userAnswers.value[category][subcategory][questionId];
+// 		// }
+// 	}
+// 	emit('user-answers-update', userAnswers.value);
+// };
 
 const updateScore = (impact, selectedAnswer, questionId, category) => {
 	const increment = assignIncrement(impact);
@@ -70,8 +134,19 @@ const updateScore = (impact, selectedAnswer, questionId, category) => {
 	emit('category-scores-update', categoryScores.value);
 };
 
-const handleAnswerChange = (impact, selectedAnswer, questionId, category) => {
-	storeAnswers(selectedAnswer, questionId, category);
+// const handleAnswerChange = (impact, selectedAnswer, questionId, category) => {
+// 	storeAnswers(selectedAnswer, questionId, category);
+// 	updateScore(impact, selectedAnswer, questionId, category);
+// };
+const handleAnswerChange = (
+	impact,
+	selectedAnswer,
+	questionId,
+	category,
+	subcategory
+) => {
+	const questionData = categories[category][subcategory][questionId];
+	storeAnswers(selectedAnswer, questionId, category, subcategory, questionData);
 	updateScore(impact, selectedAnswer, questionId, category);
 };
 
@@ -123,7 +198,16 @@ onMounted(() => {
 						:impact="question.impact"
 						:questionId="`${categoryName}-${subcategoryName}-${questionId}`"
 						:category="categoryName"
-						@answer-selected="handleAnswerChange"
+						:subcategory="subcategoryName"
+						@answer-selected="
+							handleAnswerChange(
+								impact,
+								selectedAnswer,
+								questionId,
+								categoryName,
+								subcategoryName
+							)
+						"
 					/>
 				</div>
 			</div>

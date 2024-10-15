@@ -6,6 +6,7 @@ export default {
 		impact: String,
 		questionId: String,
 		category: String,
+		subcategory: String,
 	},
 	emits: ['answer-selected'],
 	methods: {
@@ -16,7 +17,8 @@ export default {
 				this.impact,
 				selectedAnswer,
 				this.questionId,
-				this.category
+				this.category,
+				this.subcategory
 			);
 		},
 	},
