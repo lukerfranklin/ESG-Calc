@@ -53,7 +53,7 @@ export default {
 
 			for (const [subcategory, questions] of Object.entries(subcategories)) {
 				for (const [questionId, questionData] of Object.entries(questions)) {
-					if (questionData.answer === 'no') {
+					if (questionData.answer === 'no' || questionData.answer === false) {
 						this.questionsToImprove.push({
 							subcategory: subcategory,
 							id: questionId,
@@ -63,7 +63,6 @@ export default {
 					}
 				}
 			}
-
 			this.questionsToImprove.sort((a, b) => {
 				const impactOrder = { high: 3, medium: 2, low: 1 };
 				return impactOrder[b.impact] - impactOrder[a.impact];

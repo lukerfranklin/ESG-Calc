@@ -1,7 +1,12 @@
 <script setup>
+/* 
+ScoreGraph component  builds radar chart to plot scores
+*/
+
 import { ref, watch, defineProps } from 'vue';
 
 const props = defineProps({
+	// Score for each individual category
 	categoryScores: {
 		type: Object,
 		default: () => ({
@@ -10,6 +15,7 @@ const props = defineProps({
 			Governance: 0,
 		}),
 	},
+	// Maximum available score for each category
 	categoryMaxScores: {
 		type: Object,
 		default: () => ({

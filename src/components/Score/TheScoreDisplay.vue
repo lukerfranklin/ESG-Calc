@@ -1,20 +1,22 @@
 <script>
-// import ScoreGraph from './oldgraph.vue';
-
+/*
+Simple display to showcase user's scores
+*/
 export default {
 	name: 'TheScoreDisplay',
-	// components: {
-	// 	ScoreGraph,
-	// },
+
 	props: {
+		// user's score accross all categories
 		totalScore: {
 			type: Number,
 			required: true,
 		},
+		// user's score in each category
 		categoryScores: {
 			type: Object,
 			required: true,
 		},
+		// maxmimum available scores in each category
 		categoryMaxScores: {
 			type: Object,
 			required: true,
@@ -25,11 +27,6 @@ export default {
 
 <template>
 	<div class="score-display">
-		<!-- <ScoreGraph
-			:key="JSON.stringify(categoryScores)"
-			:categoryScores="categoryScores"
-			:maxScores="categoryMaxScores"
-		/> -->
 		<p>
 			Your current total score: {{ Math.round(totalScore) }} /
 			{{

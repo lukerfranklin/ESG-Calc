@@ -11,11 +11,6 @@ const categoryScores = ref({ Environment: 0, Social: 0, Governance: 0 });
 const categoryMaxScores = ref({});
 const previousAnswers = ref({});
 
-// const userAnswers = ref({
-// 	Environment: [],
-// 	Social: [],
-// 	Governance: [],
-// });
 const userAnswers = ref({
 	Environment: {},
 	Social: {},
@@ -23,6 +18,7 @@ const userAnswers = ref({
 });
 
 const assignIncrement = (impact) => {
+	// assign score increment based upon weighting of question
 	let increment = 0;
 	switch (impact) {
 		case 'high':
@@ -45,6 +41,7 @@ const initialiseScores = () => {
 };
 
 const storeAnswers = (
+	// store 'no' answers in order to return personalised advice
 	selectedAnswer,
 	questionId,
 	category,
@@ -70,8 +67,8 @@ const storeAnswers = (
 	getAdviceArray();
 };
 
-// Method to get an array of the advice properties from the userAnswers object
 const getAdviceArray = () => {
+	// build an array of advice based upon user's answers
 	const adviceArray = [];
 
 	for (const category in userAnswers.value) {
@@ -88,42 +85,17 @@ const getAdviceArray = () => {
 	return adviceArray;
 };
 
-// const storeAnswers = (
-// 	selectedAnswer,
-// 	questionId,
-// 	category
-// 	// subcategory,
-// 	// questionData
-// ) => {
-// 	if (!selectedAnswer) {
-// 		userAnswers.value[category].push(questionId);
-// 		// userAnswers.value[category][subcategory][questionId] = {
-// 		// 	questions: questionData.question,
-// 		// 	impact: questionData.impact,
-// 		// 	advice: questionData.advice,
-// 		// 	link: questionData.link,
-// 		// };
-// 	} else {
-// 		const index = userAnswers.value[category].indexOf(questionId);
-// 		if (index !== -1) {
-// 			userAnswers.value[category].splice(index, 1);
-// 		}
-// 		// if (userAnswers.value[category][subcategory][questionId]) {
-// 		// 	delete userAnswers.value[category][subcategory][questionId];
-// 		// }
-// 	}
-// 	emit('user-answers-update', userAnswers.value);
-// };
-
 const updateScore = (impact, selectedAnswer, questionId, category) => {
 	const increment = assignIncrement(impact);
 
 	if (!selectedAnswer && previousAnswers.value[questionId]) {
+		// decrease score if answer is changed from 'yes' to 'no'
 		totalScore.value -= increment;
 		categoryScores.value[category] -= increment;
 	}
 
 	if (selectedAnswer) {
+		// increase score if answer is 'yes'
 		totalScore.value += increment;
 		categoryScores.value[category] += increment;
 	}
@@ -132,12 +104,9 @@ const updateScore = (impact, selectedAnswer, questionId, category) => {
 
 	emit('score-updated', totalScore.value);
 	emit('category-scores-update', categoryScores.value);
+	emit('advice-updated', getAdviceArray());
 };
 
-// const handleAnswerChange = (impact, selectedAnswer, questionId, category) => {
-// 	storeAnswers(selectedAnswer, questionId, category);
-// 	updateScore(impact, selectedAnswer, questionId, category);
-// };
 const handleAnswerChange = (
 	impact,
 	selectedAnswer,
